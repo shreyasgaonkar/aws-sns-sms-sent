@@ -1,6 +1,6 @@
 # aws-sns-sms-sent
 
-### sms-sent.sh
+### 1. sms-sent.sh
 
 #### Prereq: AWS SNS - [SMS logging](https://docs.aws.amazon.com/sns/latest/dg/sms_stats_cloudwatch.html#sms_stats_cloudwatch_logs) is already enabled in a region.
 
@@ -15,7 +15,9 @@ If you are looking for a specific region, you would need to either update the gl
 
 **Disclaimer**: Since this script will crawl through the CloudWatch logs looking for the CloudWatch LogGroup where SNS adds the logs, it doesn't take into account messages with higher [TotalParts](https://docs.aws.amazon.com/sns/latest/dg/sms_stats_usage.html#example_report) - use ```sms-usage-report.sh``` instead . 
 
-### sms-usage-report.sh
+---
+
+### 2. sms-usage-report.sh
 
 #### Prereq: AWS SMS [Usage Report](https://docs.aws.amazon.com/sns/latest/dg/sms_stats_usage.html) is already enabled in a region.
 
