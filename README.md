@@ -6,7 +6,7 @@ If the CloudWatch [retention period](https://aws.amazon.com/cloudwatch/faqs/#AWS
 
 If you are looking for a specific region, you would need to either update the global configuration using ```aws configure``` or pass in the ```--region us-east-1``` flag to the ```aws logs describe-log-groups``` and ```aws logs filter-log-events``` call.
 
-**Usage**: run ```bash sms-sent.sh``` or, ```chmod +x sms-sent.sh``` followed by ```./sms-sent```
+**Usage**: run ```bash sms-sent.sh``` or, ```chmod +x sms-sent.sh``` followed by ```./sms-sent.sh```
 
 
 **Disclaimer**: Since this script will crawl through the CloudWatch logs looking for the CloudWatch LogGroup where SNS adds the logs, it doesn't take into account messages with higher [TotalParts](https://docs.aws.amazon.com/sns/latest/dg/sms_stats_usage.html#example_report) . 
