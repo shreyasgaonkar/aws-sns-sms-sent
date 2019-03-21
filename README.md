@@ -10,7 +10,8 @@ If the CloudWatch [retention period](https://aws.amazon.com/cloudwatch/faqs/#AWS
 
 If you are looking for a specific region, you would need to either update the global configuration using ```aws configure``` or pass in the ```--region us-east-1``` flag to the ```aws logs describe-log-groups``` and ```aws logs filter-log-events``` call.
 
-**Usage**: run ```bash sms-sent.sh``` or, ```chmod +x sms-sent.sh``` followed by ```./sms-sent.sh```
+**Usage**: 
+> run ```bash sms-sent.sh``` or, ```chmod +x sms-sent.sh``` followed by ```./sms-sent.sh```
 
 
 **Disclaimer**: Since this script will crawl through the CloudWatch logs looking for the CloudWatch LogGroup where SNS adds the logs, it doesn't take into account messages with higher [TotalParts](https://docs.aws.amazon.com/sns/latest/dg/sms_stats_usage.html#example_report) - use ```sms-usage-report.sh``` instead . 
@@ -23,4 +24,5 @@ If you are looking for a specific region, you would need to either update the gl
 
 This script will fetch all the folders in a S3 bucket configured with usage report, extract the contents and spit out the total number of messages sent using [TotalParts](https://docs.aws.amazon.com/sns/latest/dg/sms_stats_usage.html#example_report) from the objects residing inside the buckets. This approach is more robust than the above, since this relies on the total part rather than the individual CloudWatch Log Streams - which would be a single entry for a longer message.
 
-**Usage**: run ```bash sms-usage-report.sh``` or, ```chmod +x sms-usage-report.sh``` followed by ```./sms-usage-report.sh```
+**Usage**: Replace the s3 sync command to point to your S3 bucket configured with usage plans, and replace the XX at the end, with the month for which we are targeting this script.
+> run ```bash sms-usage-report.sh``` or, ```chmod +x sms-usage-report.sh``` followed by ```./sms-usage-report.sh```
